@@ -6,22 +6,20 @@
 <theme>
   <formatVersion>7</formatVersion>
 
-  <!--Confugurações da view "grid"-->
-  <view name="grid">
+  <!--Confugurações da view i"grid"-->
+  <customView name="grid-detailed" inherits="grid">
     <imagegrid name="gamegrid">
-      <scrollDirection>horizontal</scrollDirection>
-      <autoLayout>2 2</autoLayout>
+      <scrollDirection>vertical</scrollDirection>
+      <autoLayout>3 3</autoLayout>
       <autoLayout ifSubset="Ratio:5-3">3 2</autoLayout>
       <scrollLoop>false</scrollLoop>
-
-      <imageSource ifSubset="GridImage:gridscreenshot">image</imageSource>
-      <imageSource ifSubset="GridImage:gridthumbnail">thumbnail</imageSource>
+      <imageSource>thumbnail</imageSource>
 
       <pos>0 0.2</pos>      <!-- 480x320 / 0x 64y-->
-      <size>1 0.8</size>      <!--480x320 / 480x 256y-->
-      <size ifHelpPrompts="true">1 0.725</size>      <!--480x320 / 480x 232y-->
+      <size>0.5 0.8</size>      <!--480x320 / 480x 256y-->
+      <size ifHelpPrompts="true">0.5 0.725</size>      <!--480x320 / 480x 232y-->
       <margin>0.033333 0.05</margin>      <!-- 480x320 / 16x 8y -->
-      <padding>0.066666667 0.05</padding>      <!-- 480x320 / 32x 0y -->
+      <padding>0.033333 0.075</padding>      <!-- 480x320 / 32x 0y -->
 
       <autoLayoutSelectedZoom>1.075</autoLayoutSelectedZoom>
 
@@ -38,7 +36,7 @@
     </imagegrid>
 
     <image name="grid_background" extra="true">
-      <path>./assets/ratio32/gamelist-grid-bg.png</path>
+      <path>./assets/ratio32/gamelist-grid-dtl-bg.png</path>
       <pos>0 0</pos>
       <origin>0 0</origin>
       <size>1 1</size>
@@ -46,11 +44,11 @@
     </image>
 
     <image name="grid_background" extra="true" ifSubset="Ratio:4-3">
-      <path>./assets/ratio43/gamelist-grid-bg.png</path>
+      <path>./assets/ratio43/gamelist-grid-dtl-bg.png</path>
     </image>
 
     <image name="grid_background" extra="true" ifSubset="Ratio:5-3">
-      <path>./assets/ratio53/gamelist-grid-bg.png</path>
+      <path>./assets/ratio53/gamelist-grid-dtl-bg.png</path>
     </image>
 
     <gridtile name="default, selected">
@@ -96,16 +94,7 @@
     </ninepatch>
 
     <image name="gridtile.marquee">
-      <color>FFFFFFFF</color>
-      <pos>0.5 0.5</pos>
-      <origin>0.5 0.5</origin>
-      <maxSize>0.7 0.7</maxSize>
-      <visible ifSubset="GridImage:gridthumbnail">false</visible>
-    </image>
-
-    <image name="gridtile.marquee:selected">
-      <color>FFFFFFFF</color>
-      <maxSize>0.8 1</maxSize>
+      <visible>false</visible>
     </image>
 
     <text name="gridtile">
@@ -146,43 +135,103 @@
       </storyboard>
     </text>
 
+    <image name="md_image">
+      <origin>0.5 0.5</origin>
+      <pos>0.75 0.383333</pos>      <!-- 480x320 / 344x 136y -->
+      <maxSize>0.425 0.5</maxSize>      <!-- 480x320 / 240x 160y -->
+      <zIndex>4</zIndex>
+      <roundCorners>0.02</roundCorners>
+      <path>./assets/icons/cartridge=1-1.png</path>
+    </image>
+
+    <image name="md_marquee">
+      <pos>0.75 0.183333</pos>      <!-- 480x320 / 344x 68y -->
+      <origin>0.5 0.5</origin>      <!-- 480x320 / center center / -->
+      <maxSize>0.425 0.166666</maxSize>      <!-- 480x320 / 208x 56y -->
+      <zIndex>6</zIndex>
+    </image>
+
     <datetime name="md_releasedate">
-      <pos>0.608333334 0.15</pos>
-      <pos ifSubset="Ratio:5-3">0.67 0.15</pos>
+      <pos>0.825 0.7125</pos>
+      <pos ifSubset="Ratio:16-9">0.841666667 0.71851852</pos>
+      <visible ifHelpPrompts="true">0</visible>
       <size>0 0</size>
 
       <storyboard>
-        <animation property="y" from="0.175" to="0.15" duration="300" mode="EaseOut"/>
-        <animation property="opacity" from="0" to="1" duration="1000" mode="EaseOut"/>
+        <animation property="x" from="0.875" to="0.825" duration="300" mode="EaseOut"/>
+        <animation property="opacity" from="0" to="1" duration="300" mode="EaseOut"/>
       </storyboard>
     </datetime>
 
-    <image name="md_releasedate_icon" extra="true">
-      <pos>0.566666667 0.15</pos>
-      <pos ifSubset="Ratio:5-3">0.635 0.15</pos>
+    <image name="md_releasedate_icon">
+      <pos>0.783333 0.7125</pos>
+      <pos ifSubset="Ratio:16-9">0.80833333 0.71851852</pos>
+      <visible ifHelpPrompts="true">0</visible>
 
       <storyboard>
-        <animation property="y" from="0.175" to="0.15" duration="300" mode="EaseOut"/>
-        <animation property="opacity" from="0" to="1" duration="1000" mode="EaseOut"/>
+        <animation property="x" from="0.833333333" to="0.783333" duration="300" mode="EaseOut"/>
+        <animation property="opacity" from="0" to="1" duration="300" mode="EaseOut"/>
       </storyboard>
     </image>
 
+    <text name="md_description">
+      <pos>0.533333 0.75</pos>      <!-- 480x320 / 224x 240y-->
+      <pos ifHelpPrompts="true">0.466666667 0.7</pos>      <!-- 480x320 / 224x 232y-->
+
+      <size>0.433333 0.225</size>      <!-- 480x320 / 240x 64y-->
+      <size ifHelpPrompts="true">0.433333 0.2</size>      <!-- 480x320 / 240x 64y-->
+
+      <color>ffffff</color>
+      <fontPath>${typefaceRegular}</fontPath>
+      <fontSize>${fontSizeBody2-medium}</fontSize>
+      <fontSize ifSubset="FontSize:small">${fontSizeBody2-small}</fontSize>
+      <fontSize ifSubset="FontSize:large">${fontSizeBody2-large}</fontSize>
+      <lineSpacing>0.9</lineSpacing>
+    </text>
+
+    <text name="md_description" ifSubset="Ratio:16-9">
+      <pos>0.46666667 0.75555556</pos>      <!-- 480x320 / 224x 240y-->
+      <pos ifHelpPrompts="true">0.46666667 0.6962963</pos>      <!-- 480x320 / 224x 232y-->
+
+      <size>0.5 0.20740741</size>      <!-- 480x320 / 240x 64y-->
+      <size ifHelpPrompts="true">0.5 0.20740741</size>      <!-- 480x320 / 240x 64y-->
+    </text>
+
+    <text name="md_description_label" extra="true">
+      <text>${string.view.detailed.description}</text>
+
+      <color>${primaryColorLightVariant}</color>
+      <origin>0 0.5</origin>
+      <pos>0.533333 0.7125</pos>
+      <pos ifSubset="Ratio:16-9">0.46666667 0.71851852</pos>
+      <size>0.3 ${fontSizeCaption-medium}</size>
+
+      <fontSize>${fontSizeCaption-medium}</fontSize>
+      <fontSize ifSubset="FontSize:small">${fontSizeCaption-small}</fontSize>
+      <fontSize ifSubset="FontSize:large">${fontSizeCaption-large}</fontSize>
+      <fontPath>${typefaceTitleBold}</fontPath>
+      <forceUppercase>1</forceUppercase>
+
+      <visible ifHelpPrompts="true">0</visible>
+      <zIndex>20</zIndex>
+    </text>
+
+    <text name="md_description_label, md_description">
+      <storyboard>
+        <animation property="x" from="0.566666" to="0.533333" duration="300" mode="EaseOut"/>
+        <animation property="opacity" from="0" to="1" duration="300" mode="EaseOut"/>
+      </storyboard>
+    </text>
+
     <rating name="md_rating">
       <origin>0 0.5</origin>
-      <pos>0.820833333 0.15</pos>      <!-- 480x320 / 456x 272y-->
+      <pos>0.816666667 0.6375</pos>
+      <pos ifSubset="Ratio:16-9">0.81666667 0.65185185</pos>
 
       <storyboard>
-        <animation property="y" from="0.175" to="0.15" duration="300" mode="EaseOut"/>
+        <animation property="x" from="0.833333" to="0.8" duration="300" mode="EaseOut"/>
         <animation property="opacity" from="0" to="1" duration="300" mode="EaseOut"/>
       </storyboard>
     </rating>
-
-    <rating name="md_rating" ifSubset="Ratio:4-3">
-      <pos>0.81 0.128125</pos>
-    </rating>
-
-    <rating name="md_rating" ifSubset="Ratio:5-3">
-      <pos>0.8375 0.128125</pos>
-    </rating>
-  </view>
+  </customView>
 </theme>

@@ -103,6 +103,7 @@
   <include>./settings/display/view-basic.xml</include>
   <include>./settings/display/view-detailed-video.xml</include>
   <include>./settings/display/view-grid.xml</include>
+  <include>./settings/display/view-grid-detailed.xml</include>
   <include>./settings/sound.xml</include>
 
 </theme>

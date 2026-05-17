@@ -7,7 +7,7 @@
   <formatVersion>7</formatVersion>
 
   <!--Confugurações da view "grid"-->
-  <view name="grid">
+  <customView name="grid">
     <imagegrid name="gamegrid">
       <scrollDirection>horizontal</scrollDirection>
       <autoLayout>2 2</autoLayout>
@@ -149,7 +149,6 @@
     <datetime name="md_releasedate">
       <pos>0.608333334 0.15</pos>
       <pos ifSubset="Ratio:5-3">0.67 0.15</pos>
-      <size>0 0</size>
 
       <storyboard>
         <animation property="y" from="0.175" to="0.15" duration="300" mode="EaseOut"/>
